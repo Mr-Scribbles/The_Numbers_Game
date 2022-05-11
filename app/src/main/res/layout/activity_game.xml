@@ -13,7 +13,7 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/home"
+            android:onClick="homeClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Home"
@@ -22,7 +22,7 @@
             />
 
         <Button
-            android:id="@+id/stats"
+            android:onClick="statsClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -30,7 +30,7 @@
             android:text="Stats" />
 
         <Button
-            android:id="@+id/settings"
+            android:onClick="settingsClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

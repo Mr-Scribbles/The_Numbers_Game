@@ -13,15 +13,16 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/home"
+            android:onClick="homeClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Home"
             android:layout_weight="1"
-            android:layout_gravity="center_horizontal"            />
+            android:layout_gravity="center_horizontal"
+            />
 
         <Button
-            android:id="@+id/stats"
+            android:onClick="statsClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -29,13 +30,12 @@
             android:text="Stats" />
 
         <Button
-            android:id="@+id/settings"
+            android:onClick="settingsClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:text="Settings" />
-
     </TableRow>
 
     <Space
@@ -279,7 +279,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save" />
-
 
 
 

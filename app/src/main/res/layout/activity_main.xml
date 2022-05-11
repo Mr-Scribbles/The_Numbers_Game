@@ -14,16 +14,16 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/home"
+            android:onClick="homeClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home"
+            android:text="Restart"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             />
 
         <Button
-            android:id="@+id/stats"
+            android:onClick="statsClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,7 +31,7 @@
             android:text="Stats" />
 
         <Button
-            android:id="@+id/settings"
+            android:onClick="settingsClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,70 +43,15 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"/>
 
-    <TableRow
+    <TextView
+        android:id="@+id/numbersView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:text="" />
 
-        <TextView
-            android:id="@+id/num_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:text="100" />
-
-        <TextView
-            android:id="@+id/num_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:text="50" />
-
-        <TextView
-            android:id="@+id/num_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:text="5" />
-
-        <TextView
-            android:id="@+id/num_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:text="10" />
-
-        <TextView
-            android:id="@+id/num_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:text="5" />
-
-        <TextView
-            android:id="@+id/num_6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:text="1" />
-    </TableRow>
 
     <Space
         android:layout_width="wrap_content"
@@ -117,18 +62,20 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/large"
+            android:onClick="largeClicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Large" />
+            android:text="Large"
+            tools:ignore="OnClick,UsingOnClickInXml" />
 
         <Button
-            android:id="@+id/small"
+            android:onClick="smallClicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Small" />
+            android:text="Small"
+            tools:ignore="OnClick" />
 
     </TableRow>
 
@@ -142,14 +89,25 @@
         android:layout_gravity="bottom">
 
         <Button
-            android:id="@+id/quick"
+            android:onClick="quickPickClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:text="Quick Pick" />
+            android:text="Quick Pick"
+            tools:ignore="OnClick" />
 
     </TableRow>
+
+    <TextView
+        android:id="@+id/num_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="5"
+        android:textAlignment="center"
+        android:textSize="25dp" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
