@@ -99,15 +99,6 @@
 
     </TableRow>
 
-    <TextView
-        android:id="@+id/num_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:text="5"
-        android:textAlignment="center"
-        android:textSize="25dp" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Integer> bigNumbers = new ArrayList<>();
-    ArrayList<Integer> smallNumbers = new ArrayList<>();
-    ArrayList<Integer> numbers = new ArrayList<>();
+    private ArrayList<Integer> bigNumbers = new ArrayList<>();
+    private ArrayList<Integer> smallNumbers = new ArrayList<>();
+    private ArrayList<Integer> numbers = new ArrayList<>();
 
-    TextView displayNumbers;
+    private TextView displayNumbers;
 
     @SuppressLint("SetTextI18n")
     @Override
