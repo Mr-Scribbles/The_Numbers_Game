@@ -42,24 +42,26 @@
         android:layout_height="50dp"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/random_num"
-        android:textSize="90dp"
-        android:textAlignment="center"
-        android:text="999" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="25dp"/>
-
-    <TextView
-        android:text="30"
+        android:text=""
         android:textSize="90dp"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:id="@+id/count_down"/>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/random_num"
+        android:textSize="90dp"
+        android:textAlignment="center"
+        android:text="108" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -206,7 +208,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/operators"
+            android:id="@+id/add"
             android:layout_margin="1dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -215,11 +217,10 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="+"
-            tools:ignore="DuplicateIds" />
+            android:text="+" />
 
         <Button
-            android:id="@+id/operators"
+            android:id="@+id/subtract"
             android:layout_margin="1dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -228,11 +229,10 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="-"
-            tools:ignore="DuplicateIds" />
+            android:text="-" />
 
         <Button
-            android:id="@+id/operators"
+            android:id="@+id/divide"
             android:layout_margin="1dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -241,11 +241,10 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="/"
-            tools:ignore="DuplicateIds" />
+            android:text="/" />
 
         <Button
-            android:id="@+id/operators"
+            android:id="@+id/multiply"
             android:layout_margin="1dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -254,8 +253,7 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="*"
-            tools:ignore="DuplicateIds" />
+            android:text="*" />
 
         <Button
             android:id="@+id/clear"
@@ -267,7 +265,8 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="C" />
+            android:text="C"
+            tools:ignore="UsingOnClickInXml" />
     </TableRow>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
