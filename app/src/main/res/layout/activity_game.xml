@@ -15,10 +15,10 @@
             android:onClick="homeClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home"
+            android:text="@string/home"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            />
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:onClick="statsClicked"
@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:text="Stats" />
+            android:text="@string/stats"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:onClick="settingsClicked"
@@ -34,7 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:text="Settings" />
+            android:text="@string/settings"
+            tools:ignore="UsingOnClickInXml" />
     </TableRow>
 
     <Space

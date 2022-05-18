@@ -49,6 +49,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private TextView random_num;
     private TextView timer_view;
 
+
     private CountDownTimer timer = null;
 
 

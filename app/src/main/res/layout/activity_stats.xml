@@ -40,7 +40,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="50dp"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -59,12 +59,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40dp"
-            android:text="1550" />
+            android:text="" />
     </TableRow>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="20dp"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -83,12 +83,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40dp"
-            android:text="1550" />
+            android:text="" />
     </TableRow>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="100dp"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -99,20 +95,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40dp"
-            android:text="Score: " />
+            android:text="Games Lost: " />
 
         <TextView
-            android:id="@+id/score"
+            android:id="@+id/games_lost"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40dp"
-            android:text="1550" />
+            android:text="" />
     </TableRow>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="20dp"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            android:text="Winning streak: " />
+
+        <TextView
+            android:id="@+id/streak"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            android:text="" />
+
+
+    </TableRow>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
 
     <Button
         android:id="@+id/share"
