@@ -57,6 +57,8 @@ public class StatsActivity extends AppCompatActivity {
             run = run + 1;
             wins = wins + 1;
         }
+
+        //TODO this runs when clicking on stats page
         else {
             Toast.makeText(this, "Better Look next time!", Toast.LENGTH_SHORT).show();
             System.out.println("total: " + total);

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "TheNumbersGameDB__";
+    private static final String DB_NAME = "The_Numbers_Game_DB";
     private static final int DB_VERSION = 1;
 
 
@@ -117,7 +117,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private void updateDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.i("DBHelper", "updateDatabase Called");
-        //TODO
+        //TODO fix logic
         if (oldVersion < 1) {
             db.execSQL("CREATE TABLE GAMES (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "TOTAL_GAMES INTEGER, "
