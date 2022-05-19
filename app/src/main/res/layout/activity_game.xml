@@ -18,7 +18,8 @@
             android:text="@string/home"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="statsClicked"
@@ -27,7 +28,8 @@
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:text="@string/stats"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="settingsClicked"
@@ -36,7 +38,8 @@
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:text="@string/settings"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
     </TableRow>
 
     <Space
@@ -45,7 +48,7 @@
 
     <TextView
         android:text=""
-        android:textSize="90dp"
+        android:textSize="90sp"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -61,9 +64,9 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:id="@+id/random_num"
-        android:textSize="90dp"
+        android:textSize="90sp"
         android:textAlignment="center"
-        android:text="108" />
+        android:text="" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -75,7 +78,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:layout_gravity="center_vertical"
             android:id="@+id/num1"
             android:text=""/>
@@ -85,7 +88,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:layout_gravity="center_vertical"
             android:id="@+id/operator"
             android:text=""/>
@@ -97,7 +100,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:id="@+id/num2"
             android:text=""/>
 
@@ -105,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:gravity="center"
             android:layout_gravity="center_vertical"
             android:id="@+id/equal"
@@ -116,7 +119,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:layout_gravity="center_vertical"
             android:id="@+id/total"
             android:text=""/>
@@ -131,7 +134,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
         <Button
             android:id="@+id/button1"
             android:layout_margin="1dp"
@@ -142,7 +144,7 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text=""/>
+            android:text="" />
 
         <Button
             android:id="@+id/button2"
@@ -164,7 +166,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/button4"
@@ -219,7 +221,7 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="+" />
+            android:text="@string/plus" />
 
         <Button
             android:id="@+id/subtract"
@@ -231,7 +233,7 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="-" />
+            android:text="@string/subtract" />
 
         <Button
             android:id="@+id/divide"
@@ -243,7 +245,7 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="/" />
+            android:text="@string/divide" />
 
         <Button
             android:id="@+id/multiply"
@@ -255,7 +257,7 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="*" />
+            android:text="@string/multiply" />
 
         <Button
             android:id="@+id/clear"
@@ -267,7 +269,7 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="C"
+            android:text="@string/clear"
             tools:ignore="UsingOnClickInXml" />
     </TableRow>
 

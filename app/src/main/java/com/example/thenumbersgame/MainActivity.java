@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("MainActivity", "Created");
+        Log.i("MainActivity", "onCreate called");
 
         displayNumbers = findViewById(R.id.numbersView);
 
@@ -101,15 +101,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "You have picked 6 numbers, Get Ready!", Toast.LENGTH_SHORT).show();
             //slight delay fpr user
             Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //run Game with chosen numbers
-                        Intent intent = new Intent(MainActivity.this, GameActivity.class);
-                        intent.putExtra("numbers", numbers);
-                        setResult(RESULT_OK, intent);
-                        startActivity(intent);
-                    }
+                handler.postDelayed(() -> {
+                    //run Game with chosen numbers
+                    Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                    intent.putExtra("numbers", numbers);
+                    setResult(RESULT_OK, intent);
+                    startActivity(intent);
                 }, 1000);
             } else if (numbers.size() < 5){
                 numbers.add(numberPicked);

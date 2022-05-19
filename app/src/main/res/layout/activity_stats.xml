@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,10 +15,11 @@
             android:onClick="homeClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home"
+            android:text="@string/home_stats"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="statsClicked"
@@ -27,7 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:text="Stats" />
+            android:text="@string/stats_stats"
+            style="?android:attr/buttonBarButtonStyle"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:onClick="settingsClicked"
@@ -35,7 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:text="Settings" />
+            android:text="@string/settings_stats"
+            style="?android:attr/buttonBarButtonStyle"
+            tools:ignore="UsingOnClickInXml" />
     </TableRow>
 
     <Space
@@ -50,15 +54,15 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
-            android:text="Games Played: " />
+            android:textSize="40sp"
+            android:text="@string/games_played" />
 
         <TextView
             android:id="@+id/games_played"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:text="" />
     </TableRow>
 
@@ -74,15 +78,15 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
-            android:text="Games Won: " />
+            android:textSize="40sp"
+            android:text="@string/games_won" />
 
         <TextView
             android:id="@+id/games_won"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:text="" />
     </TableRow>
 
@@ -94,15 +98,15 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
-            android:text="Games Lost: " />
+            android:textSize="40sp"
+            android:text="@string/games_lost" />
 
         <TextView
             android:id="@+id/games_lost"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:text="" />
     </TableRow>
 
@@ -118,15 +122,15 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
-            android:text="Winning streak: " />
+            android:textSize="40sp"
+            android:text="@string/winning_streak" />
 
         <TextView
             android:id="@+id/streak"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:text="" />
 
 
@@ -145,7 +149,7 @@
         android:id="@+id/share"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Share on Facebook" />
+        android:text="@string/share_on_twitter" />
 
 
 

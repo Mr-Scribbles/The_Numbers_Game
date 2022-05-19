@@ -12,23 +12,22 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+
 public class StatsActivity extends AppCompatActivity {
 
     boolean win;
 
     private DBHelper dbHelper;
-    private SQLiteDatabase db;
-
 
     private TextView games_played;
     private TextView games_won;
     private TextView games_lost;
     private TextView games_streak;
 
-    private int total = 0;
-    private int wins = 0;
-    private int lost = 0;
-    private int run = 0;
+    private int total;
+    private int wins;
+    private int lost;
+    private int run;
 
 
     @Override
@@ -44,8 +43,9 @@ public class StatsActivity extends AppCompatActivity {
         games_lost = findViewById(R.id.games_lost);
         games_streak = findViewById(R.id.streak);
 
-        //TODO Get current scores from database and add to variables
-        readDataFromDB();
+        //Enter default data
+        dbHelper.populateTable();
+        getScores();
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -59,30 +59,38 @@ public class StatsActivity extends AppCompatActivity {
         }
         else {
             Toast.makeText(this, "Better Look next time!", Toast.LENGTH_SHORT).show();
+            System.out.println("total: " + total);
             total = total + 1;
+            System.out.println("New total: " + total);
             run = 0;
             lost = lost + 1;
         }
 
-        //TODO add latest game to DB
-        //dbHelper.addGame(total,wins,lost,run);
+        Log.i("StatsActivity", "Adding scores: Total:" + total + " | win: " + wins + " | Loss: " + lost + " | Run: " + run);
 
+        //add latest game to DB
+        dbHelper.addGame(total,wins,lost,run);
 
-        Log.i("StatsActivity", "getting final scores: Total:" + total + " | win: " + wins + " | Loss: " + lost + " | Run: " + run);
+        //get the latest results from DB
+        getScores();
 
-        //Set score on screen
+        //set score on screen
         setScore();
+
     }
 
-    private void readDataFromDB() {
+    //Get score from DB
+    private void getScores() {
         Log.i("StatsActivity", "Reading data from DB");
-//        ArrayList scores = dbHandler.getScores();
-//        total = (int) scores.get(0);
-//        wins = (int) scores.get(1);
-//        lost = (int) scores.get(2);
-//        run = (int) scores.get(3);
-    }
+        ArrayList scores = (ArrayList) dbHelper.getScores();
+        total = (int) scores.get(1);
+        wins = (int) scores.get(2);
+        lost = (int) scores.get(3);
+        run = (int) scores.get(4);
+        Log.i("StatsActivity", "Reading data from DB | Total: " + total + " | wins: " + wins + "| lost: " + lost + " | run: " + run);
+   }
 
+   //Set scores on screen
     private void setScore() {
         Log.i("StatsActivity", "setScore called.");
         games_played.setText(String.valueOf(total));

@@ -3,4 +3,22 @@
     <string name="home">Home</string>
     <string name="stats">Stats</string>
     <string name="settings">Settings</string>
+    <string name="home_stats">Home</string>
+    <string name="stats_stats">Stats</string>
+    <string name="settings_stats">Settings</string>
+    <string name="games_played">Games Played:</string>
+    <string name="games_won">Games Won:</string>
+    <string name="games_lost">Games Lost:</string>
+    <string name="winning_streak">Winning streak:</string>
+    <string name="share_on_twitter">Share on Twitter</string>
+    <string name="restart">Restart</string>
+    <string name="stats_main">Stats</string>
+    <string name="settings_main">Settings</string>
+    <string name="large">Large</string>
+    <string name="small">Small</string>
+    <string name="subtract">-</string>
+    <string name="divide">/</string>
+    <string name="multiply">*</string>
+    <string name="clear">C</string>
+    <string name="plus">+</string>
 </resources>

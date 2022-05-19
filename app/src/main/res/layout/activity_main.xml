@@ -17,10 +17,10 @@
             android:onClick="homeClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Restart"
+            android:text="@string/restart"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            />
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:onClick="statsClicked"
@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:text="Stats" />
+            android:text="@string/stats_main"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:onClick="settingsClicked"
@@ -36,7 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:text="Settings" />
+            android:text="@string/settings_main"
+            tools:ignore="UsingOnClickInXml" />
     </TableRow>
 
     <Space
@@ -49,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:text="" />
 
 
@@ -66,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Large"
+            android:text="@string/large"
             tools:ignore="OnClick,UsingOnClickInXml" />
 
         <Button
@@ -74,8 +76,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Small"
-            tools:ignore="OnClick" />
+            android:text="@string/small"
+            tools:ignore="OnClick,UsingOnClickInXml" />
 
     </TableRow>
 

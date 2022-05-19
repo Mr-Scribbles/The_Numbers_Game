@@ -2,6 +2,7 @@ package com.example.thenumbersgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -13,17 +14,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
+
+
+    private DBHelper dbHelper;
+
     private ArrayList<Integer> numbers = new ArrayList<>();
     private ArrayList<Button> buttons = new ArrayList<>();
 
-    private int min = 101;
-    private int max = 999;
+    public int min;
+    public int max;
     private int time = 60000;
+//    private int time = 60; //set for debugging
 
     private boolean win;
 
@@ -57,7 +62,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        Log.i("GameActivity", "Created");
+        Log.i("GameActivity", "onCreate Called");
+
+        dbHelper = new DBHelper(GameActivity.this);
 
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
@@ -96,6 +103,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             numbers = extras.getIntegerArrayList("numbers");
             setNumbers();
         }
+        dbHelper.populateSettingsTable();
+        getSettings();
         setRandomNum();
         countDown();
 
@@ -105,7 +114,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("GameActivity", "Clicked button home");
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        //TODO is this needed?
     }
 
     public void statsClicked(View view) {
@@ -120,10 +128,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
+    public void getSettings(){
+        Log.i("SettingsActivity", "getSettings called");
+        ArrayList settings = (ArrayList) dbHelper.loadSettings();
+        min = (int) settings.get(1);
+        max = (int) settings.get(2);
+    }
 
+
+    @SuppressLint("SetTextI18n")
     private void setNumbers() {
         Log.i("GameActivity", "setNumbers Called");
-        //TODO Research better way to add numbers use an array with buttons?
+        //TODO Research better way to add numbers use an array with buttons
         button1.setText(numbers.get(0).toString());
         button2.setText(numbers.get(1).toString());
         button3.setText(numbers.get(2).toString());
@@ -133,6 +149,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -315,6 +332,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void doMath() {
         Log.i("GameActivity", "doMath called");
         int number1 = Integer.parseInt(num1.getText().toString());
@@ -336,28 +354,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "You won!", Toast.LENGTH_SHORT).show();
             win = true;
             Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //slight delay before calling stats page
-                        Intent intent = new Intent(GameActivity.this, StatsActivity.class);
-                        intent.putExtra("win", win);
-                        setResult(RESULT_OK, intent);
-                        startActivity(intent);
-                    }
+                handler.postDelayed(() -> {
+                    //slight delay before calling stats page
+                    Intent intent = new Intent(GameActivity.this, StatsActivity.class);
+                    intent.putExtra("win", win);
+                    setResult(RESULT_OK, intent);
+                    startActivity(intent);
                 }, 1000);
         }
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //slight delay before clearing
-                equal.setText("");
-                total.setText("");
-                num1.setText("");
-                num2.setText("");
-                operator.setText("");
-            }
+        handler.postDelayed(() -> {
+            //slight delay before clearing
+            equal.setText("");
+            total.setText("");
+            num1.setText("");
+            num2.setText("");
+            operator.setText("");
         }, 500);
         setNewNumber();
     }
@@ -378,6 +390,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             button6.setText(total.getText());
         }
     }
+    @SuppressLint("SetTextI18n")
     private void setRandomNum() {
         Random random = new Random();
         int randomNumber = random.nextInt(max - min) + min;
@@ -386,6 +399,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private void countDown() {
         Log.i("GameActivity", "CountDown called");
         timer = new CountDownTimer(time, 1000) {
+            @SuppressLint({"DefaultLocale", "SetTextI18n"})
             @Override
             public void onTick(long l) {
                 int seconds = (int) (l /1000);
@@ -397,6 +411,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         + ":" + String.format("%02d", minutes)
                         + ":" + String.format("%02d", seconds));
             }
+            @SuppressLint("SetTextI18n")
             @Override
             public void onFinish() {
                 timer_view.setText("00:00:00");
