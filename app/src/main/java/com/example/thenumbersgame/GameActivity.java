@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -32,6 +33,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean win;
 
+    private MediaPlayer lose_sound;
+    private MediaPlayer tick_sound;
+    private MediaPlayer win_sound;
+
 
     private Button button1;
     private Button button2;
@@ -54,7 +59,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private TextView random_num;
     private TextView timer_view;
 
-
     private CountDownTimer timer = null;
 
 
@@ -65,6 +69,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("GameActivity", "onCreate Called");
 
         dbHelper = new DBHelper(GameActivity.this);
+
+        lose_sound = MediaPlayer.create(this, R.raw.lose_sound);;
+        win_sound = MediaPlayer.create(this, R.raw.win_sound);
+        tick_sound = MediaPlayer.create(this, R.raw.tick_sound);
 
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
@@ -110,20 +118,27 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public void onStop() {
+        Log.i("GameActivity", "onStop Called");
+        cancelTimer();
+        super.onStop();
+    }
+
     public void homeClicked(View view) {
-        Log.i("GameActivity", "Clicked button home");
+        Log.i("GameActivity", "homeClicked Called");
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     public void statsClicked(View view) {
-        Log.i("GameActivity", "Clicked button stats");
+        Log.i("GameActivity", "statsClicked Called");
         Intent intent = new Intent(this, StatsActivity.class);
         startActivity(intent);
     }
 
     public void settingsClicked(View view) {
-        Log.i("GameActivity", "Clicked button settings");
+        Log.i("GameActivity", "settingsClicked Called");
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
@@ -352,6 +367,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         equal.setText("=");
         if (randomNumber == number3) {
             Toast.makeText(this, "You won!", Toast.LENGTH_SHORT).show();
+            win_sound.start();
             win = true;
             Handler handler = new Handler();
                 handler.postDelayed(() -> {
@@ -402,6 +418,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             @SuppressLint({"DefaultLocale", "SetTextI18n"})
             @Override
             public void onTick(long l) {
+                tick_sound.start();
                 int seconds = (int) (l /1000);
                 int hours = seconds / (60 * 60);
                 int tempMint = (seconds - (hours * 60 * 60));
@@ -414,7 +431,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             @SuppressLint("SetTextI18n")
             @Override
             public void onFinish() {
+                Log.i("GameActivity", "onFinish called");
                 timer_view.setText("00:00:00");
+                lose_sound.start();
                 Intent intent = new Intent(GameActivity.this, StatsActivity.class);
                 intent.putExtra("win", win);
                 setResult(RESULT_OK, intent);
@@ -425,16 +444,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void cancelTimer() {
+        Log.i("GameActivity", "cancelTimer called");
         if(timer != null){
             timer.cancel();
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        cancelTimer();
-    }
+
 }
 
 
