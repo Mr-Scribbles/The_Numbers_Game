@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Random Numbers"
-        android:textSize="50dp" />
+        android:textSize="48dp" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -97,10 +97,27 @@
         android:layout_height="20dp" />
 
     <TextView
+        android:text="user"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAlignment="center"
+        android:id="@+id/user_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:ignore="HardcodedText" />
+
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/auth"
+        android:onClick="Auth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="50sp" />
+        android:text="Authorise Twitter"
+        tools:ignore="OnClick" />
 
     <Space
         android:layout_width="wrap_content"

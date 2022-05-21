@@ -20,14 +20,14 @@ import java.util.Random;
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-
+    private static int max;
+    private static int min;
     private DBHelper dbHelper;
 
     private ArrayList<Integer> numbers = new ArrayList<>();
     private ArrayList<Button> buttons = new ArrayList<>();
 
-    public int min;
-    public int max;
+
     private int time = 60000;
 //    private int time = 60; //set for debugging
 
@@ -113,7 +113,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
         dbHelper.populateSettingsTable();
         getSettings();
-        setRandomNum();
+        random_num.setText(Integer.toString(setRandomNum()));
         countDown();
 
     }
@@ -407,11 +407,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     @SuppressLint("SetTextI18n")
-    private void setRandomNum() {
+    public static int setRandomNum() {
         Random random = new Random();
         int randomNumber = random.nextInt(max - min) + min;
-        random_num.setText(Integer.toString(randomNumber));
+//        random_num.setText(Integer.toString(randomNumber));
+        return randomNumber;
     }
+
+
     private void countDown() {
         Log.i("GameActivity", "CountDown called");
         timer = new CountDownTimer(time, 1000) {

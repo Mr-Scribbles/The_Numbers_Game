@@ -18,13 +18,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Random;
 
+
+
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
 
     private ArrayList<Integer> bigNumbers = new ArrayList<>();
-    private ArrayList<Integer> smallNumbers = new ArrayList<>();
+    public ArrayList<Integer> smallNumbers = new ArrayList<>();
     private ArrayList<Integer> numbers = new ArrayList<>();
+
+
 
     private TextView displayNumbers;
 
@@ -85,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 //            Log.i("MainActivity", "getAccelerometer values" + values[0] + " | " + values[1] + " | " + values[2]);
 
             float acceleration = (x * x + y * y + z * z) / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
-            Log.i("MainActivity", "getAccelerometer accelerationSquareRoot: " + acceleration);
             long actualTime = sensorEvent.timestamp;
             if(acceleration >= 2){
                 if(actualTime - lastUpdate < 200){
@@ -134,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
-    //Add up to 4 big numbers to game
     public void pickLarge() {
         Log.i("MainActivity", "Clicked button large");
         if (bigNumbers.isEmpty()) {
@@ -189,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public void pickRandom() {
         Log.i("MainActivity", "pickRandom Called");
+        int bigCount = 0;
         int min = 0;
         int max = 2;
         for (int i = 0; i < 6; ++i) {
@@ -196,6 +199,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             int randomNumber = random.nextInt(max - min) + min;
             if (randomNumber == 1) {
                 pickLarge();
+                bigCount = bigCount + bigCount;
+                if(bigCount > 4){
+                    pickSmall();
+                }
             } else if (randomNumber == 0) {
                 pickSmall();
             }

@@ -3,6 +3,7 @@ package com.example.thenumbersgame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.conf.ConfigurationBuilder;
 
 
 public class StatsActivity extends AppCompatActivity {
@@ -103,21 +110,37 @@ public class StatsActivity extends AppCompatActivity {
 
 
     public void homeClicked(View view) {
-        Log.i("StatsActivity", "Clicked button home");
+        Log.i("StatsActivity", "homeClicked called");
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         //TODO is this needed?
     }
 
     public void statsClicked(View view) {
-        Log.i("StatsActivity", "Clicked button stats");
+        Log.i("StatsActivity", "StatsActivity called");
         Intent intent = new Intent(this, StatsActivity.class);
         startActivity(intent);
     }
 
     public void settingsClicked(View view) {
-        Log.i("StatsActivity", "Clicked button settings");
+        Log.i("StatsActivity", "settingsClicked called");
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
-}
+
+    public void shareClicked(View view) throws TwitterException {
+        Log.i("StatsActivity", "shareClicked called");
+        try {
+            Twitter twitter = TwitterFactory.getSingleton();
+            String tweet = "I have played " + total + " games and I have won " + wins + " and lost " + lost + " my current winning streak is: " + run;
+            Status status = twitter.updateStatus(tweet);
+            Log.i("StatsActivity", "shareClicked Tweeted " + status.getText());
+            Log.i("StatsActivity", "shareClicked Tweeted ");
+        } catch (IllegalStateException illegalStateException){
+//            if (401 == te.getStatusCode()){
+                Log.e("shareClicked", "Unable to tweet");
+            }
+        }
+
+
+    }

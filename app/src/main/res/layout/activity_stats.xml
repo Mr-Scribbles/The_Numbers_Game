@@ -144,6 +144,7 @@
 
     <Button
         android:id="@+id/share"
+        android:onClick="shareClicked"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/share_on_twitter" />
