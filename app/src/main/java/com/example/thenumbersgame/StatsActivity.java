@@ -88,7 +88,6 @@ public class StatsActivity extends AppCompatActivity {
                 konfettiView.start(party);
             }
 
-            //TODO this runs when clicking on stats page
             else {
                 Toast.makeText(this, "Better Look next time!", Toast.LENGTH_SHORT).show();
                 System.out.println("total: " + total);
@@ -121,6 +120,7 @@ public class StatsActivity extends AppCompatActivity {
         lost = (int) scores.get(3);
         run = (int) scores.get(4);
         Log.i("StatsActivity", "Reading data from DB | Total: " + total + " | wins: " + wins + "| lost: " + lost + " | run: " + run);
+
    }
 
    //Set scores on screen
@@ -137,7 +137,6 @@ public class StatsActivity extends AppCompatActivity {
         Log.i("StatsActivity", "homeClicked called");
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        //TODO is this needed?
     }
 
     public void statsClicked(View view) {
@@ -165,5 +164,4 @@ public class StatsActivity extends AppCompatActivity {
                 Log.e("shareClicked", "Unable to tweet");
             }
         }
-
     }
