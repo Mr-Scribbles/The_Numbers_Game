@@ -19,7 +19,8 @@
             android:layout_weight="1"
             android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="statsClicked"
@@ -29,7 +30,8 @@
             android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="@string/stats"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="settingsClicked"
@@ -39,7 +41,8 @@
             android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="@string/settings"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
     </TableRow>
 
     <Space
@@ -144,7 +147,8 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="" />
+            android:text=""
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button2"
@@ -155,7 +159,8 @@
             android:textSize="15sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button3"
@@ -166,7 +171,8 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button4"
@@ -177,7 +183,8 @@
             android:textSize="15sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button5"
@@ -188,7 +195,8 @@
             android:textSize="15sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button6"
@@ -199,7 +207,8 @@
             android:textSize="15sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="?android:attr/buttonBarButtonStyle" />
     </TableRow>
 
     <Space
@@ -221,7 +230,8 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="@string/plus" />
+            android:text="@string/plus"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/subtract"
@@ -233,7 +243,8 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="@string/subtract" />
+            android:text="@string/subtract"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/divide"
@@ -245,7 +256,8 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="@string/divide" />
+            android:text="@string/divide"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/multiply"
@@ -257,7 +269,8 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:text="@string/multiply" />
+            android:text="@string/multiply"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/clear"
@@ -270,7 +283,8 @@
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
             android:text="@string/clear"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
     </TableRow>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

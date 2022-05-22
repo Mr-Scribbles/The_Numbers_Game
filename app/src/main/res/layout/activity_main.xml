@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,7 +20,8 @@
             android:layout_weight="1"
             android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="statsClicked"
@@ -31,7 +31,8 @@
             android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="@string/stats_main"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="settingsClicked"
@@ -41,7 +42,8 @@
             android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="@string/settings_main"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
     </TableRow>
 
     <Space
@@ -74,7 +76,8 @@
             android:layout_weight="1"
             android:layout_margin="2sp"
             android:text="@string/large"
-            tools:ignore="OnClick,UsingOnClickInXml" />
+            tools:ignore="OnClick,UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="smallClicked"
@@ -83,7 +86,8 @@
             android:layout_margin="2sp"
             android:layout_weight="1"
             android:text="@string/small"
-            tools:ignore="OnClick,UsingOnClickInXml" />
+            tools:ignore="OnClick,UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
     </TableRow>
 
@@ -103,8 +107,8 @@
             android:layout_margin="2sp"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:text="Quick Pick"
-            tools:ignore="OnClick" />
+            android:text="@string/quick_pick"
+            tools:ignore="OnClick,UsingOnClickInXml" />
 
     </TableRow>
 

@@ -21,7 +21,8 @@
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             tools:ignore="UsingOnClickInXml"
-            android:layout_margin="2sp"/>
+            android:layout_margin="2sp"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="statsClicked"
@@ -31,7 +32,8 @@
             android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="@string/stats_stats"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:onClick="settingsClicked"
@@ -41,7 +43,8 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/settings_stats"
             android:layout_margin="2sp"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            style="?android:attr/buttonBarButtonStyle" />
     </TableRow>
 
     <nl.dionsegijn.konfetti.xml.KonfettiView
@@ -153,7 +156,8 @@
         android:onClick="shareClicked"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/share_on_twitter" />
+        android:text="@string/share_on_twitter"
+        tools:ignore="UsingOnClickInXml" />
 
 
 

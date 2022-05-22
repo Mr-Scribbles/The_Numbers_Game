@@ -25,10 +25,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private DBHelper dbHelper;
 
     private ArrayList<Integer> numbers = new ArrayList<>();
-    private ArrayList<Button> buttons = new ArrayList<>();
 
 
-    private int time = 60000;
+    private final int time = 60000;
 //    private int time = 60; //set for debugging
 
     private boolean win;
@@ -48,7 +47,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private Button subtract;
     private Button divide;
     private Button multiply;
-    private Button clear;
 
 
     private TextView num1;
@@ -62,6 +60,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private CountDownTimer timer = null;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +69,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         dbHelper = new DBHelper(GameActivity.this);
 
-        lose_sound = MediaPlayer.create(this, R.raw.lose_sound);;
+        lose_sound = MediaPlayer.create(this, R.raw.lose_sound);
         win_sound = MediaPlayer.create(this, R.raw.win_sound);
         tick_sound = MediaPlayer.create(this, R.raw.tick_sound);
 
@@ -84,7 +83,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         subtract = findViewById(R.id.subtract);
         divide = findViewById(R.id.divide);
         multiply = findViewById(R.id.multiply);
-        clear = findViewById(R.id.clear);
+        Button clear = findViewById(R.id.clear);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -154,7 +153,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("SetTextI18n")
     private void setNumbers() {
         Log.i("GameActivity", "setNumbers Called");
-        //TODO Research better way to add numbers use an array with buttons
         button1.setText(numbers.get(0).toString());
         button2.setText(numbers.get(1).toString());
         button3.setText(numbers.get(2).toString());
@@ -409,9 +407,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("SetTextI18n")
     public static int setRandomNum() {
         Random random = new Random();
-        int randomNumber = random.nextInt(max - min) + min;
-//        random_num.setText(Integer.toString(randomNumber));
-        return randomNumber;
+        //        random_num.setText(Integer.toString(randomNumber));
+        return random.nextInt(max - min) + min;
     }
 
 

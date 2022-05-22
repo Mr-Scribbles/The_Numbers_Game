@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private SensorManager sensorManager;
 
-    private ArrayList<Integer> bigNumbers = new ArrayList<>();
+    private final ArrayList<Integer> bigNumbers = new ArrayList<>();
     public ArrayList<Integer> smallNumbers = new ArrayList<>();
-    private ArrayList<Integer> numbers = new ArrayList<>();
+    private final ArrayList<Integer> numbers = new ArrayList<>();
 
 
 
@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         lastUpdate = System.currentTimeMillis();
 
-        //TODO Add to arrays from database
 
         //prepare small numbers
         for (int i = 1; i < 11; i++) {
@@ -132,9 +131,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void quickPickClick(View view) {
         Log.i("MainActivity", "quickPickClick Called");
         pickRandom();
-//        Intent intent = new Intent(this, GameActivity.class);
-//        startActivity(intent);
-
     }
 
     public void pickLarge() {
@@ -203,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 if(bigCount > 4){
                     pickSmall();
                 }
-            } else if (randomNumber == 0) {
+            } else {
                 pickSmall();
             }
 

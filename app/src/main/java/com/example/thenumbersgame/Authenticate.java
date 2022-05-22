@@ -18,7 +18,9 @@ import twitter4j.auth.RequestToken;
 public class Authenticate extends AppCompatActivity {
     private WebView webView;
     private TextView info;
+
     private final Twitter twitter = TwitterFactory.getSingleton();
+
     private String oauthVerifier;
 
     public Authenticate() {

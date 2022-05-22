@@ -35,10 +35,6 @@ public class StatsActivity extends AppCompatActivity {
 
     private DBHelper dbHelper;
 
-    private KonfettiView konfettiView;
-    private Shape.DrawableShape drawableShape = null;
-    private Drawable drawable;
-
     private TextView games_played;
     private TextView games_won;
     private TextView games_lost;
@@ -63,9 +59,10 @@ public class StatsActivity extends AppCompatActivity {
         games_lost = findViewById(R.id.games_lost);
         games_streak = findViewById(R.id.streak);
 
-        konfettiView = findViewById(R.id.konfettiView);
-        drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_heart);
-        drawableShape = new Shape.DrawableShape(drawable, true);
+        KonfettiView konfettiView = findViewById(R.id.konfettiView);
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_heart);
+        assert drawable != null;
+        Shape.DrawableShape drawableShape = new Shape.DrawableShape(drawable, true);
 
         //Enter default data
         dbHelper.populateTable();

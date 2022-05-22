@@ -24,4 +24,13 @@
     <string name="played">Played:</string>
     <string name="lost">Lost</string>
     <string name="streak">Streak:</string>
+    <string name="quick_pick">Quick Pick</string>
+    <string name="home_Settings">Home</string>
+    <string name="stats_Settings">Stats</string>
+    <string name="settings_Settings">Settings</string>
+    <string name="random_numbers">Random Numbers</string>
+    <string name="min">min</string>
+    <string name="max">max</string>
+    <string name="authorise_twitter">Authorise Twitter</string>
+    <string name="save">Save</string>
 </resources>

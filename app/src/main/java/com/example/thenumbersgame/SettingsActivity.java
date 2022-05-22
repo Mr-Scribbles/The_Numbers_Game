@@ -11,9 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import twitter4j.Query;
-import twitter4j.QueryResult;
-import twitter4j.Status;
 import twitter4j.TwitterException;
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
@@ -26,7 +23,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private DBHelper dbHelper;
 
-    private Twitter twitter = TwitterFactory.getSingleton();
+    private final Twitter twitter = TwitterFactory.getSingleton();
 //    private TweetAdapter adapter;
 
     private TextView userInfo;
@@ -60,52 +57,37 @@ public class SettingsActivity extends AppCompatActivity {
         getSettings();
 
     }
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onStart() {
         Log.i("SettingsActivity", "onStart Called");
         super.onStart();
 
-        Background.run(new Runnable() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void run() {
-                final boolean status;
-                final String text;
-                if (isAuthorised()) {
-                    Log.i("SettingsActivity", "Twitter is Authorised");
-                    try {
-                        twitter.updateStatus("hi!");
-                    } catch (TwitterException ignored) {
+        Background.run(() -> {
+            final boolean status;
+            final String text;
+            if (isAuthorised()) {
+                Log.i("SettingsActivity", "Twitter is Authorised");
+                try {
+                    twitter.updateStatus("hi!");
+                } catch (TwitterException ignored) {
 
-                    }
-
-                    text = user.getScreenName();
-//                    text = "Danny";
-//                    tweets.clear();
-//                    tweets.addAll(queryTwitter());
-                    status = false;
-                } else {
-//                    userInfo.setText("unknown");
-                    text = "unknown";
-                    userInfo.setText("Twitter logged in as: " + text);
-                    status = true;
                 }
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        userInfo.setText("Twitter logged in as: " + text);
-                        auth.setEnabled(status);
-//                        adapter.notifyDataSetChanged();
-                    }
-                });
-            }
-        });
-    }
+                text = user.getScreenName();
 
-    public void authorise(View view) {
-        Intent intent = new Intent(this, Authenticate.class);
-        startActivity(intent);
+                status = false;
+            } else {
+                text = "unknown";
+                userInfo.setText("Twitter logged in as: " + text);
+                status = true;
+            }
+
+            runOnUiThread(() -> {
+                userInfo.setText("Twitter logged in as: " + text);
+                auth.setEnabled(status);
+            });
+        });
     }
 
     private boolean isAuthorised() {
@@ -120,6 +102,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void getSettings(){
         Log.i("SettingsActivity", "getSettings called");
         ArrayList settings = (ArrayList) dbHelper.loadSettings();
