@@ -21,22 +21,19 @@ public class Authenticate extends AppCompatActivity {
     private final Twitter twitter = TwitterFactory.getSingleton();
     private String oauthVerifier;
 
+    public Authenticate() {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("Authenticate", "onCreate called");
-//        setContentView(R.layout.activity_authenticate);
-//
-//        info = findViewById(R.id.info);
-//        webView = findViewById(R.id.web_view);
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onLoadResource(WebView view, String url) {
                 Log.i("Authenticate", "onLoadResource called");
                 super.onLoadResource(view, url);
-
-//                info.setText(getString(R.string.working));
                 String message;
                 if (url.startsWith("https://www.jcu.edu.au")) {
                     Log.i("Authenticate", "onLoadResource Found URL");

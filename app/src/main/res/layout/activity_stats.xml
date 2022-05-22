@@ -20,13 +20,15 @@
             android:text="@string/home_stats"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="UsingOnClickInXml"
+            android:layout_margin="2sp"/>
 
         <Button
             android:onClick="statsClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="@string/stats_stats"
             tools:ignore="UsingOnClickInXml" />
@@ -38,6 +40,7 @@
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:text="@string/settings_stats"
+            android:layout_margin="2sp"
             tools:ignore="UsingOnClickInXml" />
     </TableRow>
 
@@ -45,6 +48,7 @@
         android:id="@+id/konfettiView"
         android:layout_width="match_parent"
         android:layout_height="150sp" />
+
 
     <TableRow
         android:layout_width="match_parent"
@@ -55,10 +59,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:text="@string/games_played" />
+            android:text="@string/played" />
 
         <TextView
             android:id="@+id/games_played"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:text="" />
+    </TableRow>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:text="@string/won" />
+
+        <TextView
+            android:id="@+id/games_won"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,27 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:text="@string/games_won" />
-
-        <TextView
-            android:id="@+id/games_won"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
-            android:text="" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
-            android:text="@string/games_lost" />
+            android:text="@string/lost" />
 
         <TextView
             android:id="@+id/games_lost"
@@ -123,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:text="@string/winning_streak" />
+            android:text="@string/streak"/>
 
         <TextView
             android:id="@+id/streak"
@@ -135,11 +143,6 @@
 
 
     </TableRow>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp"/>
-
-
 
     <Space
         android:layout_width="match_parent"

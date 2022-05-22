@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:text="@string/restart"
             android:layout_weight="1"
+            android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             tools:ignore="UsingOnClickInXml" />
 
@@ -27,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="@string/stats_main"
             tools:ignore="UsingOnClickInXml" />
@@ -36,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="@string/settings_main"
             tools:ignore="UsingOnClickInXml" />
@@ -47,11 +50,12 @@
 
     <TextView
         android:id="@+id/numbersView"
+        android:background="@drawable/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="40sp"
         android:text="" />
 
 
@@ -68,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="2sp"
             android:text="@string/large"
             tools:ignore="OnClick,UsingOnClickInXml" />
 
@@ -75,6 +80,7 @@
             android:onClick="smallClicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="2sp"
             android:layout_weight="1"
             android:text="@string/small"
             tools:ignore="OnClick,UsingOnClickInXml" />
@@ -94,6 +100,7 @@
             android:onClick="quickPickClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="2sp"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:text="Quick Pick"

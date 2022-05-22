@@ -7,7 +7,6 @@
     <string name="stats_stats">Stats</string>
     <string name="settings_stats">Settings</string>
     <string name="games_played">Games Played:</string>
-    <string name="games_won">Games Won:</string>
     <string name="games_lost">Games Lost:</string>
     <string name="winning_streak">Winning streak:</string>
     <string name="share_on_twitter">Share on Twitter</string>
@@ -21,4 +20,8 @@
     <string name="multiply">*</string>
     <string name="clear">C</string>
     <string name="plus">+</string>
+    <string name="won">Won:</string>
+    <string name="played">Played:</string>
+    <string name="lost">Lost</string>
+    <string name="streak">Streak:</string>
 </resources>

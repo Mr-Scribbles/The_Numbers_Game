@@ -74,33 +74,32 @@ public class StatsActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             win = extras.getBoolean("win");
-        }
+            if (win) {
+                total = total + 1;
+                run = run + 1;
+                wins = wins + 1;
+                EmitterConfig emitterConfig = new Emitter(5L, TimeUnit.SECONDS).perSecond(50);
+                Party party = new PartyFactory(emitterConfig)
+                        .angle(270)
+                        .spread(90)
+                        .setSpeedBetween(1f, 5f)
+                        .timeToLive(2000L)
+                        .shapes(new Shape.Rectangle(0.2f), drawableShape)
+                        .sizes(new Size(12, 5f, 0.2f))
+                        .position(0.0, 0.0, 1.0, 0.0)
+                        .build();
+                konfettiView.start(party);
+            }
 
-        if(win){
-            total = total + 1;
-            run = run + 1;
-            wins = wins + 1;
-            EmitterConfig emitterConfig = new Emitter(5L, TimeUnit.SECONDS).perSecond(50);
-            Party party = new PartyFactory(emitterConfig)
-                    .angle(270)
-                    .spread(90)
-                    .setSpeedBetween(1f, 5f)
-                    .timeToLive(2000L)
-                    .shapes(new Shape.Rectangle(0.2f), drawableShape)
-                    .sizes(new Size(12, 5f, 0.2f))
-                    .position(0.0, 0.0, 1.0, 0.0)
-                    .build();
-            konfettiView.start(party);
-        }
-
-        //TODO this runs when clicking on stats page
-        else {
-            Toast.makeText(this, "Better Look next time!", Toast.LENGTH_SHORT).show();
-            System.out.println("total: " + total);
-            total = total + 1;
-            System.out.println("New total: " + total);
-            run = 0;
-            lost = lost + 1;
+            //TODO this runs when clicking on stats page
+            else {
+                Toast.makeText(this, "Better Look next time!", Toast.LENGTH_SHORT).show();
+                System.out.println("total: " + total);
+                total = total + 1;
+                System.out.println("New total: " + total);
+                run = 0;
+                lost = lost + 1;
+            }
         }
 
         Log.i("StatsActivity", "Adding scores: Total:" + total + " | win: " + wins + " | Loss: " + lost + " | Run: " + run);
@@ -169,6 +168,5 @@ public class StatsActivity extends AppCompatActivity {
                 Log.e("shareClicked", "Unable to tweet");
             }
         }
-
 
     }

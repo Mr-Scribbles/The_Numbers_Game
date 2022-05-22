@@ -15,6 +15,7 @@
         <Button
             android:onClick="homeClicked"
             android:layout_width="match_parent"
+            android:layout_margin="2sp"
             android:layout_height="wrap_content"
             android:text="Home"
             android:layout_weight="1"
@@ -26,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="Stats" />
 
@@ -34,6 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="2sp"
             android:layout_gravity="center_horizontal"
             android:text="Settings" />
     </TableRow>
@@ -104,6 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@drawable/back"
         tools:ignore="HardcodedText" />
 
 
@@ -125,6 +129,7 @@
 
     <Button
         android:onClick="saveClicked"
+        android:layout_margin="2sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save"

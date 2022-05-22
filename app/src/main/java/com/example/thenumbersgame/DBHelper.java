@@ -48,7 +48,6 @@ public class DBHelper extends SQLiteOpenHelper {
         updateDatabase(db, oldVersion, newVersion);
     }
 
-    //TODO review better ways to do this
     //Check if data is in table if not put in default
     public void populateTable() {
         Log.i("checkDB", "checkDB Called");
@@ -72,7 +71,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    //TODO combine this with above
+
     public void populateSettingsTable(){
         Log.i("checkDB", "checkDB Called");
         SQLiteDatabase db = this.getWritableDatabase();
@@ -118,7 +117,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private void updateDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.i("DBHelper", "updateDatabase Called");
         //TODO fix logic
-        if (oldVersion < 1) {
+        if (oldVersion < newVersion) {
             db.execSQL("CREATE TABLE GAMES (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "TOTAL_GAMES INTEGER, "
                     + "GAMES_WON INTEGER, "
@@ -181,8 +180,10 @@ public class DBHelper extends SQLiteOpenHelper {
             result.add(min);
             int max = cursor.getInt(2);
             result.add(max);
+            cursor.close();
         }
         return result;
+
     }
 }
 

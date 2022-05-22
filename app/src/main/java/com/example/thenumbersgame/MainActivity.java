@@ -171,10 +171,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private void addNumbers(int numberPicked) {
         if (numbers.size() == 5) {
             numbers.add(numberPicked);
-            displayNumbers.setText(numbers.toString());
-            System.out.println("starting delay");
-            Toast.makeText(this, "You have picked 6 numbers, Get Ready!", Toast.LENGTH_SHORT).show();
-            //slight delay fpr user
+            displayNumbers.setText(numbers.toString().replace(",", " ").replace("[", " "). replace("]", " ").trim());
+            Toast.makeText(this, "Get Ready!", Toast.LENGTH_SHORT).show();
+            //slight delay fpr ux
             Handler handler = new Handler();
             handler.postDelayed(() -> {
                 //run Game with chosen numbers
@@ -185,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }, 1000);
         } else if (numbers.size() < 5) {
             numbers.add(numberPicked);
-            displayNumbers.setText(numbers.toString());
+            displayNumbers.setText(numbers.toString().replace(",", " ").replace("[", " "). replace("]", " ").trim());
             System.out.println("numbers is " + numbers);
         }
     }
