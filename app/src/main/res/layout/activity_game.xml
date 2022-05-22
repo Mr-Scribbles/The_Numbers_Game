@@ -18,8 +18,7 @@
             android:text="@string/home"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            tools:ignore="UsingOnClickInXml"
-            style="?android:attr/buttonBarButtonStyle" />
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:onClick="statsClicked"
@@ -28,8 +27,7 @@
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:text="@string/stats"
-            tools:ignore="UsingOnClickInXml"
-            style="?android:attr/buttonBarButtonStyle" />
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:onClick="settingsClicked"
@@ -38,8 +36,7 @@
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:text="@string/settings"
-            tools:ignore="UsingOnClickInXml"
-            style="?android:attr/buttonBarButtonStyle" />
+            tools:ignore="UsingOnClickInXml" />
     </TableRow>
 
     <Space

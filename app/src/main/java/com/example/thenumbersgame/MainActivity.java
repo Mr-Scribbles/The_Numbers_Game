@@ -140,7 +140,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void pickLarge() {
         Log.i("MainActivity", "Clicked button large");
         if (bigNumbers.isEmpty()) {
-            Toast.makeText(this, "You can only choose up to 4 large numbers", Toast.LENGTH_SHORT).show();
+            pickSmall();
+//            Toast.makeText(this, "You can only choose up to 4 large numbers", Toast.LENGTH_SHORT).show();
         } else {
             int i = (int) (Math.random() * bigNumbers.size());
             int randomBig = bigNumbers.get(i);
