@@ -1,10 +1,16 @@
 package com.example.thenumbersgame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.database.sqlite.SQLiteDatabase;
+
+import nl.dionsegijn.konfetti.core.Party;
+import nl.dionsegijn.konfetti.core.PartyFactory;
+import nl.dionsegijn.konfetti.core.emitter.Emitter;
+import nl.dionsegijn.konfetti.core.models.Size;
+
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,12 +18,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
+import nl.dionsegijn.konfetti.core.emitter.EmitterConfig;
+import nl.dionsegijn.konfetti.core.models.Shape;
+import nl.dionsegijn.konfetti.xml.KonfettiView;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-import twitter4j.conf.ConfigurationBuilder;
 
 
 public class StatsActivity extends AppCompatActivity {
@@ -25,6 +34,10 @@ public class StatsActivity extends AppCompatActivity {
     boolean win;
 
     private DBHelper dbHelper;
+
+    private KonfettiView konfettiView;
+    private Shape.DrawableShape drawableShape = null;
+    private Drawable drawable;
 
     private TextView games_played;
     private TextView games_won;
@@ -50,6 +63,10 @@ public class StatsActivity extends AppCompatActivity {
         games_lost = findViewById(R.id.games_lost);
         games_streak = findViewById(R.id.streak);
 
+        konfettiView = findViewById(R.id.konfettiView);
+        drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_heart);
+        drawableShape = new Shape.DrawableShape(drawable, true);
+
         //Enter default data
         dbHelper.populateTable();
         getScores();
@@ -63,6 +80,17 @@ public class StatsActivity extends AppCompatActivity {
             total = total + 1;
             run = run + 1;
             wins = wins + 1;
+            EmitterConfig emitterConfig = new Emitter(5L, TimeUnit.SECONDS).perSecond(50);
+            Party party = new PartyFactory(emitterConfig)
+                    .angle(270)
+                    .spread(90)
+                    .setSpeedBetween(1f, 5f)
+                    .timeToLive(2000L)
+                    .shapes(new Shape.Rectangle(0.2f), drawableShape)
+                    .sizes(new Size(12, 5f, 0.2f))
+                    .position(0.0, 0.0, 1.0, 0.0)
+                    .build();
+            konfettiView.start(party);
         }
 
         //TODO this runs when clicking on stats page
