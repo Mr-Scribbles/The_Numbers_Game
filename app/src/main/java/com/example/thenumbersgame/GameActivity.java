@@ -374,7 +374,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     intent.putExtra("win", win);
                     setResult(RESULT_OK, intent);
                     startActivity(intent);
-                }, 1000);
+                }, 300);
         }
         Handler handler = new Handler();
         handler.postDelayed(() -> {
@@ -407,7 +407,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("SetTextI18n")
     public static int setRandomNum() {
         Random random = new Random();
-        //        random_num.setText(Integer.toString(randomNumber));
         return random.nextInt(max - min) + min;
     }
 

@@ -15,10 +15,13 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 
-//
-//    @Test
-//    public void testAssertList(){
-//        int result = GameActivity.setRandomNum();
-//        assertThat(result, )
-//    }
+
+    @Test
+    public void testAssertList(){
+        int high = 999;
+        int low = 101;
+        int result = GameActivity.setRandomNum();
+        assertTrue("Number is not more then" + high, high >= result);
+        assertTrue("Number is more then " + low, low <= result);
+    }
 }

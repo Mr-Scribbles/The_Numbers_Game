@@ -23,8 +23,4 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.thenumbersgame", appContext.getPackageName());
     }
-    @Test
-    public void checkNumbers(){
-
-    }
 }
